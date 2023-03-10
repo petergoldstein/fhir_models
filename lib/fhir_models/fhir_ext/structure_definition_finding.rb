@@ -2,14 +2,7 @@ module FHIR
   class StructureDefinitionFinding
     # This is not an official FHIR Resource type. It is a data structure used for reporting.
     attr_accessor :resourceType
-    attr_accessor :profileIdA
-    attr_accessor :profileIdB
-    attr_accessor :status
-    attr_accessor :path
-    attr_accessor :attribute
-    attr_accessor :message
-    attr_accessor :valueA
-    attr_accessor :valueB
+    attr_accessor :profileIdA, :profileIdB, :status, :path, :attribute, :message, :valueA, :valueB
 
     def to_s
       "#{resourceType},#{profileIdA},#{profileIdB},#{path},#{attribute},#{status},#{message},#{valueA},#{valueB}"

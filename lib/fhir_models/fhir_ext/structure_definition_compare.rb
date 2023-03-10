@@ -145,8 +145,8 @@ module FHIR
 
     def get_extension(extension, elements = snapshot.element)
       elements.each do |element|
-        if element.path.include?('extension') || element.type.map(&:code).include?('Extension')
-          return element if element.name == extension || element.type.map(&:profile).include?(extension)
+        if (element.path.include?('extension') || element.type.map(&:code).include?('Extension')) && (element.name == extension || element.type.map(&:profile).include?(extension))
+          return element
         end
       end
       nil

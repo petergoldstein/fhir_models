@@ -1,6 +1,5 @@
-require 'bundler/setup'
-Bundler.setup
 require 'simplecov'
+
 SimpleCov.start do
   add_filter '/spec/'
   add_group 'FHIR Models', 'lib/fhir_models/fhir/resources'

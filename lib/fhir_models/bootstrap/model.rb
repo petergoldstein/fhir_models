@@ -141,10 +141,10 @@ module FHIR
       end # metadata.each
       # check multiple types
       multiple_types = begin
-                         self.class::MULTIPLE_TYPES
-                       rescue
-                         {}
-                       end
+        self.class::MULTIPLE_TYPES
+      rescue
+        {}
+      end
       multiple_types.each do |prefix, suffixes|
         present = []
         suffixes.each do |suffix|
@@ -280,7 +280,7 @@ module FHIR
     def check_binding_uri(uri, value)
       valid = false
       # Strip off the |4.0.0 or |4.0.1 or |2014-03-26 or similar from the ends of URLs
-      uri&.gsub!(/\|[A-Za-z0-9\.\-]*/, '')
+      uri&.gsub!(/\|[A-Za-z0-9.-]*/, '')
       valueset = FHIR::Definitions.get_codes(uri)
 
       if uri == 'http://hl7.org/fhir/ValueSet/mimetypes' || uri == 'http://www.rfc-editor.org/bcp/bcp13.txt'

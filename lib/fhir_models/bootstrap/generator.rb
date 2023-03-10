@@ -3,11 +3,9 @@ module FHIR
     class Generator
       KNOWN_MISSING_EXPANSIONS = %w[bcp47 bcp13.txt mimetypes LL379-9].freeze
 
-      attr_accessor :lib
-      attr_accessor :defn
+      attr_accessor :lib, :defn, :missing_expansions, :missing_required_expansion
       # templates keeps track of all the templates in context within a given StructureDefinition
       attr_accessor :templates
-      attr_accessor :missing_expansions, :missing_required_expansion
 
       def initialize(auto_setup: true)
         # load the valueset expansions
@@ -204,7 +202,7 @@ module FHIR
                 # set the actual code list
                 binding_uri = field.binding['uri']
                 # Strip off the |4.0.0 or |4.0.1 or |2014-03-26 or similar from the ends of URLs
-                binding_uri&.gsub!(/\|[A-Za-z0-9\.\-]*/, '')
+                binding_uri&.gsub!(/\|[A-Za-z0-9.-]*/, '')
                 codes = @defn.get_codes(binding_uri)
                 field.valid_codes = codes unless codes.nil?
                 if field.valid_codes.empty? && binding_uri && !binding_uri.end_with?(*KNOWN_MISSING_EXPANSIONS)
