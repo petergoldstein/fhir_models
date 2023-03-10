@@ -5,12 +5,6 @@ module FHIR
       extend FHIR::Deprecate
 
       attr_accessor :name
-      attr_accessor :hierarchy
-      attr_accessor :kind
-      attr_accessor :constants
-      attr_accessor :fields
-      attr_accessor :templates
-      attr_accessor :top_level
 
       def initialize(name = ['Template'], top_level = false)
         @name = name

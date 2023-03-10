@@ -32,9 +32,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry-coolline'
   spec.add_development_dependency 'test-unit'
   spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'simplecov', '~> 0.17.0'
+  spec.add_development_dependency 'simplecov', '~> 0.22.0'
   spec.add_development_dependency 'nokogiri-diff'
-  spec.add_development_dependency 'rubocop', '0.80'
+  spec.add_development_dependency 'rubocop', '~> 1.0'
   spec.add_development_dependency 'guard-rspec'
   spec.add_development_dependency 'guard-test'
 end

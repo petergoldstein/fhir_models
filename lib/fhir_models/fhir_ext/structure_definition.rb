@@ -7,9 +7,6 @@ module FHIR
   class StructureDefinition
     extend FHIR::Deprecate
     attr_accessor :finding
-    attr_accessor :errors
-    attr_accessor :warnings
-    attr_accessor :hierarchy
 
     # -------------------------------------------------------------------------
     #                            Profile Validation
